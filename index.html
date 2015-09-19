@@ -14,12 +14,16 @@
  <a href="" ng-click="ui.current(2);">Tab 2</a>
 
     <hr/>
-    <div ng-controller="tab1" ng-show="ui.isCurrent(1);">Tab 1
+    <div ng-controller="tab1" ng-show="ui.isCurrent(1);">Shopping
         <ul ng-repeat="item in list">
-            <li ng-class="{ 'done': item.complete }">{{item.name}}</li>
+            <li ng-class="{ 'done': item.complete }">{{item.name}}
+                <input type="checkbox" ng-model="item.complete">      
+            </li>
+         
         </ul>
+        
     </div>
-    <div ng-controller="tab2" ng-show="ui.isCurrent(2);">Tab 2
+    <div ng-controller="tab2" ng-show="ui.isCurrent(2);">Bussiness
         <ul ng-repeat="item in list">
             <li ng-class="{ 'done': item.complete }">{{item.name}}</li>
         </ul>
