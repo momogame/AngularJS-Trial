@@ -25,6 +25,20 @@
             <input type="text" ng-model="inputData.name" name="textinput" id="textinput">
             <button type="submit" class="btn btn-primary">Add Memo</button>
          </form>
+
+
+
+            Move
+            <select ng-model="itemMoved" ng-options="item.name for item in list"></select>
+         
+            To
+            <select ng-model="data.select" id="selectbasic" name="selectbasic" class="form-control">
+                <option value="" selected></option>
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+            </select>
+            <button type="submit" class="btn btn-primary" ng-click="transfer(list, itemMoved)">Submit</button>
+     
         
     </div>
     <div ng-controller="tab2" ng-show="ui.isCurrent(2);">Bussiness

@@ -24,7 +24,8 @@ angular.module('todo', [])
                 complete: true
             }];
 
-            $s.inputData = {};
+            $s.itemMoved = '--Please selece--';
+
 
             $s.addMemo = function (list) {
                 list.push($s.inputData);
@@ -32,6 +33,20 @@ angular.module('todo', [])
                     name: '',
                     complete: false
                 };
+
+            };
+
+            $s.transfer = function (list, item) {
+                //list.pop();
+                console.log(item);
+                for(var i = 0; i < $s.list.length; i++) {
+                    if($s.list[i].name == item.name) {
+                        console.log('i found it ' + i);
+                        list.splice(i,1);
+                    }
+                   //console.log(list[i].name);
+                }
+               
             };
 
     }])
