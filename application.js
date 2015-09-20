@@ -2,6 +2,15 @@ angular.module('todo', [])
     .controller('page', ['$scope',
         function ($s) {
             var uiCurrent = 1;
+
+            $s.tabs = [{
+                tabName: 'tab1'
+            }, {
+                tabName: 'tab2'
+            
+            }];
+            $s.thisTab;
+
             $s.ui = {
                 current: function (newUICurrent) {
                     if (typeof newUICurrent != 'undefined') {
