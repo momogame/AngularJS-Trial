@@ -24,6 +24,16 @@ angular.module('todo', [])
                 complete: true
             }];
 
+            $s.inputData = {};
+
+            $s.addMemo = function (list) {
+                list.push($s.inputData);
+                $s.inputData = {
+                    name: '',
+                    complete: false
+                };
+            };
+
     }])
     .controller('tab2', ['$scope',
         function ($s) {

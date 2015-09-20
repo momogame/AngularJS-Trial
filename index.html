@@ -18,9 +18,13 @@
         <ul ng-repeat="item in list">
             <li ng-class="{ 'done': item.complete }">{{item.name}}
                 <input type="checkbox" ng-model="item.complete">      
-            </li>
-         
+            </li>   
         </ul>
+
+         <form class="form-horizontal" ng-submit="addMemo(list)">
+            <input type="text" ng-model="inputData.name" name="textinput" id="textinput">
+            <button type="submit" class="btn btn-primary">Add Memo</button>
+         </form>
         
     </div>
     <div ng-controller="tab2" ng-show="ui.isCurrent(2);">Bussiness
