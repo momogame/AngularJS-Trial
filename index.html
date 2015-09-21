@@ -10,13 +10,16 @@
 </head>
 <body>
   
-<div ng-app="todo" ng-controller="page"> <a href="" ng-click="ui.current(1);">Tab 1</a>
- <a href="" ng-click="ui.current(2);">Tab 2</a>
+<div ng-app="todo" ng-controller="page">
+  <ul ng-repeat="tab in tabs"> 
+  <a href="" ng-click="ui.current(tab.number);">{{tab.tabName}}</a>
+  </ul>
+  
 
     <hr/>
-    <div ng-controller="tab1" ng-show="ui.isCurrent(1);">Shopping
-        <ul ng-repeat="item in list">
-            <li ng-class="{ 'done': item.complete }">{{item.name}}
+    <div ng-repeat="tab in tabs" ng-show="ui.isCurrent(tab.number);">{{tab.tabName}}
+        <ul ng-repeat="item in dataMock">
+            <li ng-show="tab.tabName == item.list" ng-class="{ 'done': item.complete }">{{item.name}}
                 <input type="checkbox" ng-model="item.complete">      
             </li>   
         </ul>
@@ -25,8 +28,6 @@
             <input type="text" ng-model="inputData.name" name="textinput" id="textinput">
             <button type="submit" class="btn btn-primary">Add Memo</button>
          </form>
-
-
 
             Move
             <select ng-model="itemMoved" ng-options="item.name for item in list"></select>
@@ -38,11 +39,7 @@
      
         
     </div>
-    <div ng-controller="tab2" ng-show="ui.isCurrent(2);">Bussiness
-        <ul ng-repeat="item in list">
-            <li ng-class="{ 'done': item.complete }">{{item.name}}</li>
-        </ul>
-    </div>
+    
 </div>
 
 </body>

@@ -1,15 +1,18 @@
 angular.module('todo', [])
-    .controller('page', ['$scope',
-        function ($s) {
+    .controller('page', ['$scope', 'todoApi',
+        function ($s, todoApi) {
             var uiCurrent = 1;
 
             $s.tabs = [{
-                tabName: 'tab1'
+                tabName: 'shopping',
+                number: 1
             }, {
-                tabName: 'tab2'
+                tabName: 'bussiness',
+                number: 2
             
             }];
             $s.thisTab;
+
 
             $s.ui = {
                 current: function (newUICurrent) {
@@ -22,6 +25,9 @@ angular.module('todo', [])
                     return (uiCurrent === c);
                 }
             };
+
+            $s.dataMock = todoApi.query();
+
     }])
     .controller('tab1', ['$scope',
         function ($s) {
