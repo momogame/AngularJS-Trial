@@ -14,9 +14,21 @@
   <ul ng-repeat="tab in tabs"> 
   <a href="" ng-click="ui.current(tab.number);">{{tab.tabName}}</a>
   </ul>
-  
+  <a href="" ng-click="ui.current(0);">Create New Tab</a>
+  <hr/>
 
-    <hr/>
+
+  <div ng-show="ui.isCurrent(0);">
+        Create New Tab
+        <br>
+          Name of the list: 
+          <input type="text" ng-model="newTabName">
+          <button class="btn btn-success" ng-click="addNewTab()">
+            Create
+          </button>
+  </div>
+
+    
     <div ng-repeat="tab in tabs" ng-show="ui.isCurrent(tab.number);">{{tab.tabName}}
         <ul ng-repeat="item in dataMock">
             <li ng-show="tab.tabName == item.list" ng-class="{ 'done': item.complete }">{{item.name}}

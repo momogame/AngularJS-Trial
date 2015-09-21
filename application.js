@@ -42,16 +42,6 @@ angular.module('todo', [])
             };
 
             $s.transfer = function (movedItem, moveTo) {
-                /*
-                console.log(item);
-                for(var i = 0; i < $s.list.length; i++) {
-                    if($s.list[i].name == item.name) {
-                        console.log('i found it ' + i);
-                        list.splice(i,1);
-                    }
-                 
-                }
-               */
 
                for(var i = 0; i < $s.dataMock.length; i++) {
                     console.log('movedItem = ' + movedItem.name);
@@ -62,6 +52,15 @@ angular.module('todo', [])
                     }
                }
 
+            };
+
+            $s.addNewTab = function() {
+                $s.totalTab++;
+                $s.tabs.push({
+                    tabName: $s.newTabName,
+                    number: $s.tabs.length+1,
+                });
+                $s.newTabName = "";
             };
 
     }])
