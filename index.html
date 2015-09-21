@@ -30,12 +30,12 @@
          </form>
 
             Move
-            <select ng-model="itemMoved" ng-options="item.list for item in dataMock"></select>
+            <select ng-model="movedItem" ng-options="item.name for item in dataMock"></select>
          
             To
-            <select ng-model="thisTab" ng-options="tab.tabName for tab in tabs"></select>
+            <select ng-model="moveTo" ng-options="tab.tabName for tab in tabs"></select>
 
-            <button type="submit" class="btn btn-primary" ng-click="transfer(list, itemMoved)">Submit</button>
+            <button type="submit" class="btn btn-primary" ng-click="transfer(movedItem, moveTo)">Submit</button>
      
         
     </div>

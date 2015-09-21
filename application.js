@@ -11,7 +11,7 @@ angular.module('todo', [])
                 number: 2
             
             }];
-            $s.thisTab;
+            //$s.moveTo;
 
 
             $s.ui = {
@@ -41,6 +41,29 @@ angular.module('todo', [])
 
             };
 
+            $s.transfer = function (movedItem, moveTo) {
+                /*
+                console.log(item);
+                for(var i = 0; i < $s.list.length; i++) {
+                    if($s.list[i].name == item.name) {
+                        console.log('i found it ' + i);
+                        list.splice(i,1);
+                    }
+                 
+                }
+               */
+
+               for(var i = 0; i < $s.dataMock.length; i++) {
+                    console.log('movedItem = ' + movedItem.name);
+                    if( $s.dataMock[i].name == movedItem.name ) {
+                        console.log('hello = ' + moveTo.tabName);
+                        $s.dataMock[i].list = moveTo.tabName;
+                        break;
+                    }
+               }
+
+            };
+
     }])
     .controller('tab1', ['$scope',
         function ($s) {
@@ -65,15 +88,17 @@ angular.module('todo', [])
             };
 
             $s.transfer = function (list, item) {
-                //list.pop();
-                console.log(item);
+               
+               /*
                 for(var i = 0; i < $s.list.length; i++) {
                     if($s.list[i].name == item.name) {
                         console.log('i found it ' + i);
                         list.splice(i,1);
                     }
-                   //console.log(list[i].name);
                 }
+                */
+
+                
                
             };
 
