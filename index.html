@@ -24,13 +24,13 @@
             </li>   
         </ul>
 
-         <form class="form-horizontal" ng-submit="addMemo(list)">
-            <input type="text" ng-model="inputData.name" name="textinput" id="textinput">
-            <button type="submit" class="btn btn-primary">Add Memo</button>
+         <form class="form-horizontal">
+            <input type="text" ng-model="newMemo" name="textinput" id="textinput">
+            <button type="submit" class="btn btn-primary" ng-click="addMemo(newMemo)">Add Memo</button>
          </form>
 
             Move
-            <select ng-model="itemMoved" ng-options="item.name for item in list"></select>
+            <select ng-model="itemMoved" ng-options="item.list for item in dataMock"></select>
          
             To
             <select ng-model="thisTab" ng-options="tab.tabName for tab in tabs"></select>

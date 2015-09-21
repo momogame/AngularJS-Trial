@@ -7,7 +7,7 @@ angular.module('todo', [])
                 tabName: 'shopping',
                 number: 1
             }, {
-                tabName: 'bussiness',
+                tabName: 'business',
                 number: 2
             
             }];
@@ -27,6 +27,19 @@ angular.module('todo', [])
             };
 
             $s.dataMock = todoApi.query();
+
+            $s.addMemo = function (newMemo) {
+
+                console.log( $s.tabs[uiCurrent - 1].tabName);
+                var inputData = {
+                    list: $s.tabs[uiCurrent - 1].tabName,
+                    name: newMemo,
+                    complete: false
+                }
+
+                $s.dataMock.push(inputData);
+
+            };
 
     }])
     .controller('tab1', ['$scope',
